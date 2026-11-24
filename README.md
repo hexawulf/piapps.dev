@@ -1,12 +1,35 @@
 # piapps.dev
 
-Static landing page for **https://piapps.dev** — the umbrella domain for self-hosted apps built and operated by [0xWulf](https://0xwulf.dev) on a Raspberry Pi 5 homelab.
+Static landing page for **[piapps.dev](https://piapps.dev)** — the umbrella domain for self-hosted apps built and operated by [0xWulf](https://0xwulf.dev) on a Raspberry Pi 5 homelab.
+
+[![Live Site](https://img.shields.io/badge/live-piapps.dev-14B8A6?style=flat-square)](https://piapps.dev)
+[![Site checks](https://github.com/hexawulf/piapps.dev/actions/workflows/check.yml/badge.svg)](https://github.com/hexawulf/piapps.dev/actions/workflows/check.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-0D9488?style=flat-square)](LICENSE)
+
+## Screenshots
+
+### Desktop
+
+![piapps.dev desktop landing page](docs/screenshots/desktop.png)
+
+### About Modal & Mobile
+
+| About modal (1280px) | Mobile (390px) |
+| :---: | :---: |
+| ![piapps.dev About modal](docs/screenshots/about-modal.png) | <img src="docs/screenshots/mobile.png" alt="piapps.dev mobile view" width="260"> |
+
+## Highlights
+
+- **Zero dependencies:** plain HTML5, CSS3, and ES modules — no frameworks, no build step, no external fonts or CDNs.
+- **Accessible & responsive:** semantic landmarks, native `<dialog>` About modal, visible focus rings, `prefers-reduced-motion`, and clean layouts down to 360px.
+- **Strict security headers:** Content-Security-Policy, `X-Content-Type-Options: nosniff`, and `Referrer-Policy` enforced by nginx.
+- **Single source of truth:** showcase metadata in `src/data/projects.js` is synced with `hexawulf/0xwulf`.
 
 ## Stack
 
-- Plain HTML5, CSS3, and ES modules — no frameworks, no build step, no external fonts or CDNs.
-- Showcase metadata in `src/data/projects.js` is synced with `hexawulf/0xwulf`.
-- Strict CSP (`default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com`).
+- Plain HTML5, CSS3, and vanilla JavaScript (ES modules)
+- Served by nginx on a Raspberry Pi 5 behind Cloudflare
+- Strict CSP (`default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com`)
 
 ## Updating the cards
 
