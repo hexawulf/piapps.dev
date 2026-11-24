@@ -32,6 +32,20 @@ jobs:
           grep -Fq 'Sitemap: https://piapps.dev/sitemap.xml' robots.txt
           grep -Fq '<loc>https://piapps.dev/</loc>' sitemap.xml
 
+      - name: Check cache-busting query versions
+        run: |
+          set -e
+          INDEX_JS_V=$(grep -oE '/script\.js\?v=[0-9]+' index.html | head -n 1)
+          NOTFOUND_JS_V=$(grep -oE '/script\.js\?v=[0-9]+' 404.html | head -n 1)
+          if [ -z "$INDEX_JS_V" ] || [ "$INDEX_JS_V" != "$NOTFOUND_JS_V" ]; then
+            echo "ERROR: index.html ($INDEX_JS_V) and 404.html ($NOTFOUND_JS_V) must use the same script.js ?v= version"
+            exit 1
+          fi
+          if ! grep -Eq "from '\./src/data/projects\.js\?v=[0-9]+'" script.js; then
+            echo "ERROR: script.js projects.js import is missing ?v= cache-busting query"
+            exit 1
+          fi
+
       - name: Check for forbidden internal details
         run: |
           set -e

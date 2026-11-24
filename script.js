@@ -1,13 +1,12 @@
-import { projects } from './src/data/projects.js?v=1';
+import { projects } from './src/data/projects.js?v=2';
+
+const APP_RELEASE = {
+  version: 'v1.1.0',
+  releaseUrl: 'https://github.com/hexawulf/piapps.dev/releases/tag/v1.1.0',
+  releaseDate: 'November 2026',
+};
 
 const alsoHosted = [
-  {
-    icon: '📦',
-    title: 'Stocky',
-    description: 'Homelab hardware tracker and spare-parts ledger.',
-    liveLink: 'https://stocky.piapps.dev',
-    codeLink: 'https://github.com/hexawulf/stocky',
-  },
   {
     icon: '📚',
     title: 'Reading Habit Tracker',
@@ -263,6 +262,48 @@ function renderAlsoHosted() {
   grid.replaceChildren(fragment);
 }
 
+function initAboutDialog() {
+  const openBtn = document.getElementById('about-open');
+  const dialog = document.getElementById('about-dialog');
+  const closeBtn = document.getElementById('about-close');
+  const versionLink = document.getElementById('about-version-link');
+  const releaseDateEl = document.getElementById('about-release-date');
+
+  if (versionLink) {
+    versionLink.textContent = APP_RELEASE.version;
+    versionLink.href = APP_RELEASE.releaseUrl;
+  }
+  if (releaseDateEl) {
+    releaseDateEl.textContent = APP_RELEASE.releaseDate;
+  }
+
+  if (!openBtn || !dialog || !closeBtn || typeof dialog.showModal !== 'function') {
+    return;
+  }
+
+  openBtn.addEventListener('click', () => {
+    if (!dialog.open) {
+      document.body.classList.add('modal-open');
+      dialog.showModal();
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('modal-open');
+    openBtn.focus();
+  });
+}
+
 function updateCopyrightYear() {
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) {
@@ -273,5 +314,6 @@ function updateCopyrightYear() {
 document.addEventListener('DOMContentLoaded', () => {
   renderShowcase();
   renderAlsoHosted();
+  initAboutDialog();
   updateCopyrightYear();
 });

@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0B0B1A">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B1A'/%3E%3Crect x='3' y='3' width='58' height='58' rx='11' fill='none' stroke='%2314B8A6' stroke-width='3'/%3E%3Cpath d='M20 42V22h11c5.5 0 9 3.1 9 7.8S36.5 37.5 31 37.5h-5.2V42H20zm5.8-9.3h4.9c2.2 0 3.5-1.1 3.5-2.9s-1.3-2.9-3.5-2.9h-4.9v5.8z' fill='%235EEAD4'/%3E%3Ccircle cx='45' cy='40' r='3.5' fill='%2314B8A6'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/style.css?v=1">
+  <link rel="stylesheet" href="/style.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -27,6 +27,14 @@
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="https://0xwulf.dev" target="_blank" rel="noopener noreferrer">0xwulf.dev</a>
         <a class="nav-link" href="https://github.com/hexawulf" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button type="button" id="about-open" class="nav-link nav-about-btn" aria-label="About piapps.dev">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+          </svg>
+          <span>About</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -64,6 +72,50 @@
     </div>
   </footer>
 
-  <script type="module" src="/script.js?v=1"></script>
+  <dialog id="about-dialog" class="about-dialog" aria-labelledby="about-title">
+    <div class="about-surface">
+      <div class="about-header">
+        <h2 id="about-title" class="about-heading">About piapps.dev</h2>
+        <button type="button" id="about-close" class="about-close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="about-body">
+        <p class="about-intro">
+          The landing page for self-hosted apps running on a Raspberry Pi 5 homelab. Built as a fast, lightweight index to showcase homelab dashboards, developer utilities, and browser sandboxes.
+        </p>
+        <dl class="about-list">
+          <div class="about-row">
+            <dt>Tech Stack</dt>
+            <dd>HTML, CSS and vanilla JavaScript (no framework, no build); served by nginx on a Raspberry Pi 5; Cloudflare in front; strict Content-Security-Policy.</dd>
+          </div>
+          <div class="about-row">
+            <dt>Developer</dt>
+            <dd>Erling Wulf Weinreich (0xWulf) &middot; <a class="inline-link" href="mailto:dev@0xwulf.dev">dev@0xwulf.dev</a></dd>
+          </div>
+          <div class="about-row">
+            <dt>Website</dt>
+            <dd><a class="inline-link" href="https://0xwulf.dev" target="_blank" rel="noopener noreferrer">https://0xwulf.dev</a></dd>
+          </div>
+          <div class="about-row">
+            <dt>GitHub Repo</dt>
+            <dd><a class="inline-link" href="https://github.com/hexawulf/piapps.dev" target="_blank" rel="noopener noreferrer">https://github.com/hexawulf/piapps.dev</a></dd>
+          </div>
+          <div class="about-row">
+            <dt>Version</dt>
+            <dd>
+              <a id="about-version-link" class="inline-link" href="https://github.com/hexawulf/piapps.dev/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer">v1.1.0</a>
+              &middot; Release Date: <span id="about-release-date">November 2026</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="/script.js?v=2"></script>
 </body>
 </html>
