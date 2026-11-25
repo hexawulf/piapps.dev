@@ -23,9 +23,10 @@ const alsoHosted = [
   },
   {
     icon: '📈',
-    title: 'probplots',
+    title: 'p05.dev',
     description: 'Interactive probability distribution calculators and plots.',
-    liveLink: 'https://probplots.piapps.dev',
+    liveLink: 'https://p05.dev',
+    codeLink: 'https://github.com/hexawulf/p05.dev',
   },
   {
     icon: '✂️',
