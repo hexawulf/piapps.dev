@@ -27,8 +27,8 @@ export const projects = [
     techStack: ['React 19', 'Express 5', 'TypeScript', 'Prisma', 'SQLite', 'Redis', 'Playwright', 'Docker'],
     codeLink: 'https://github.com/hexawulf/ContainerYard',
     liveLink: 'https://containeryard.org',
-    version: 'v6.0.0',
-    releaseLink: 'https://github.com/hexawulf/ContainerYard/releases/tag/v6.0.0',
+    version: 'v6.1.0',
+    releaseLink: 'https://github.com/hexawulf/ContainerYard/releases/tag/v6.1.0',
     dockerLink: 'https://hub.docker.com/r/0xwulf/containeryard',
   },
   {
